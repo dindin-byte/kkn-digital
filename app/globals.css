@@ -115,11 +115,11 @@
   --sidebar-ring: #8aa892;
 
   /* Brand palette */
-  --forest: #1f4a37;
-  --forest-deep: #12291f;
-  --forest-soft: #356a4e;
-  --sage: #a9bda6;
-  --sage-light: #dde8d8;
+  --forest: #18181b;
+  --forest-deep: #121212;
+  --forest-soft: #2a2a2a;
+  --sage: #8892a2;
+  --sage-light: #e8eaec;
   --ivory: #f6f7f1;
   --ivory-deep: #ecefe5;
   --ink: #1b2f25;
@@ -379,17 +379,17 @@
   }
 
   .btn-primary {
-    background: linear-gradient(150deg, #2a5c45, var(--forest) 55%, #183c2c);
+    background: linear-gradient(150deg, #2a5c45, var(--forest) 55%, #18181b);
     color: #f8faf5;
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.22),
-      0 18px 40px -20px rgba(18, 41, 31, 0.65);
+      0 18px 40px -20px rgba(12, 12, 12, 0.65);
   }
 
   .btn-primary:hover {
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.28),
-      0 24px 48px -20px rgba(18, 41, 31, 0.72);
+      0 24px 48px -20px rgba(12, 12, 12, 0.72);
   }
 
   .btn-ghost {
