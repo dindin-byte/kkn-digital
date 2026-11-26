@@ -73,6 +73,7 @@ export default function Navbar() {
           </span>
         </Link>
 
+        {/* Desktop links (lg and above) */}
         <div className="hidden items-center gap-0.5 lg:flex">
           {navLinks.map((link) => {
             const active = isActive(pathname, link.href);
@@ -85,7 +86,7 @@ export default function Navbar() {
                 className={`relative rounded-full px-3 py-2 text-[12.5px] font-semibold transition-all duration-300 ${
                   active
                     ? "bg-[var(--sage-light)] text-[#1b2f25] shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_20px_-12px_rgba(18,41,31,0.4)]"
-                    : "text-[#52675a] hover:bg-white/05 hover:text-[#1f4a37]"
+                  : "text-[#52675a] hover:bg-white/05 hover:text-[#1f4a37]"
                 }`}
               >
                 {link.label}
@@ -94,28 +95,60 @@ export default function Navbar() {
           })}
         </div>
 
+        {/* Mobile bottom nav - only shown on mobile (lg:hidden) */}
+        <div className="flex items-center gap-2 lg:hidden">
+          {navLinks.slice(0, 5).map((link, index) => {
+            const active = isActive(pathname, link.href);
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={`flex-0 rounded-[20px] px-3 py-2.5 text-[11px] font-semibold transition-all duration-300 ${
+                  active
+                    ? "glass-nav-item bg-[var(--sage-light)]/30 text-[#1b2f25] shadow-[0_4px_12px_-4px_rgba(18,41,31,0.3)]"
+                  : "glass-nav-item bg-[var(--sage-light)]/20 text-[#52675a] hover:text-[#1f4a37] hover:bg-[var(--sage-light)]/30"
+                }`}
+              >
+                <span className="flex items-center justify-center gap-2">
+                  {index < 3 ? (
+                    <Leaf size={14} className="text-[var(--forest-soft)]" />
+                  ) : (
+                    <ArrowUpRight size={14} className="text-[var(--forest-soft)]" />
+                  )}
+                </span>
+                <span className="hidden sm:inline">{link.label}</span>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Desktop "Lihat Galeri" button */}
         <div className="flex items-center gap-2">
           <Link
             href="/galeri"
-            className="hidden items-center gap-1.5 rounded-full border border-white/10 bg-white/80 px-4 py-2.5 text-[12.5px] font-bold text-[#1b2f25] transition hover:border-white/20 hover:bg-white/30 sm:inline-flex"
+            className="hidden lg:flex items-center gap-1.5 rounded-full border border-white/10 bg-white/80 px-4 py-2.5 text-[12.5px] font-bold text-[#1b2f25] transition hover:border-white/20 hover:bg-white/30"
           >
             Lihat Galeri
             <ArrowUpRight size={15} />
           </Link>
-
-          <button
-            type="button"
-            aria-label={isOpen ? "Tutup menu" : "Buka menu"}
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setIsOpen((value) => !value)}
-            className="flex h-10 w-10 items-center justify-center rounded-[13px] border border-white/10 bg-white/80 text-[#1b2f25] transition hover:bg-white/90 lg:hidden"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
+
+        {/* Mobile menu toggle - hidden on lg+ */}
+        <button
+          type="button"
+          aria-label={isOpen ? "Tutup menu" : "Buka menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setIsOpen((value) => !value)}
+          className="flex h-10 w-10 items-center justify-center rounded-[13px] border border-white/10 bg-white/80 text-[#1b2f25] transition hover:bg-white/90 lg:hidden"
+        >
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </nav>
 
+      {/* Mobile slide-down menu (fallback for deep links) */}
       <div
         id="mobile-menu"
         className={`mx-auto mt-2 max-w-[1240px] overflow-hidden rounded-[24px] transition-all duration-500 lg:hidden ${
