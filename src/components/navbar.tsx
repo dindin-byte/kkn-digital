@@ -52,7 +52,7 @@ export default function Navbar() {
           className="group flex shrink-0 items-center gap-2.5"
           aria-label="KKN Digital — Beranda"
         >
-          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-[14px] bg-gradient-to-br from-[#356a4e] via-[#1f4a37] to-[#12291f] text-[#f6f7f1] shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_10px_22px_-10px_rgba(18,41,31,0.8)]">
+          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-[14px] bg-[var(--sage-light)] shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_10px_22px_-10px_rgba(18,41,31,0.4)]">
             <span className="pointer-events-none absolute -right-2 -top-2 h-6 w-6 rounded-full bg-white/20 blur-[6px]" />
             <Leaf
               size={19}
@@ -80,8 +80,8 @@ export default function Navbar() {
                 aria-current={active ? "page" : undefined}
                 className={`relative rounded-full px-3 py-2 text-[12.5px] font-semibold transition-all duration-300 ${
                   active
-                    ? "bg-[#1f4a37] text-[#f8faf5] shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_20px_-12px_rgba(18,41,31,0.8)]"
-                    : "text-[#52675a] hover:bg-[#1f4a37]/[0.06] hover:text-[#1f4a37]"
+                    ? "bg-[var(--sage-light)] text-[#1b2f25] shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_20px_-12px_rgba(18,41,31,0.4)]"
+                    : "text-[#52675a] hover:bg-white/05 hover:text-[#1f4a37]"
                 }`}
               >
                 {link.label}
@@ -93,7 +93,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/galeri"
-            className="hidden items-center gap-1.5 rounded-full border border-[#1f4a37]/10 bg-white/60 px-4 py-2.5 text-[12.5px] font-bold text-[#1f4a37] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition hover:border-[#1f4a37]/20 hover:bg-white sm:inline-flex"
+            className="hidden items-center gap-1.5 rounded-full border border-white/10 bg-white/80 px-4 py-2.5 text-[12.5px] font-bold text-[#1b2f25] transition hover:border-white/20 hover:bg-white/30 sm:inline-flex"
           >
             Lihat Galeri
             <ArrowUpRight size={15} />
@@ -105,7 +105,7 @@ export default function Navbar() {
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             onClick={() => setIsOpen((value) => !value)}
-            className="flex h-10 w-10 items-center justify-center rounded-[13px] border border-[#1f4a37]/10 bg-white/70 text-[#1f4a37] transition hover:bg-white lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-[13px] border border-white/10 bg-white/80 text-[#1b2f25] transition hover:bg-white/90 lg:hidden"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -132,8 +132,8 @@ export default function Navbar() {
                 aria-current={active ? "page" : undefined}
                 className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition ${
                   active
-                    ? "bg-[#1f4a37] text-[#f8faf5]"
-                    : "text-[#52675a] hover:bg-[#1f4a37]/[0.06] hover:text-[#1f4a37]"
+                    ? "bg-[var(--sage-light)] text-[#1b2f25]"
+                    : "text-[#52675a] hover:bg-white/05 hover:text-[#1f4a37]"
                 }`}
               >
                 <span className="flex items-center gap-3">
