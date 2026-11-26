@@ -113,9 +113,9 @@ export default function Navbar() {
               >
                 <span className="flex items-center justify-center gap-2">
                   {index < 3 ? (
-                    <Leaf size={14} className="text-[var(--forest-soft)]" />
-                  ) : (
                     <ArrowUpRight size={14} className="text-[var(--forest-soft)]" />
+                  ) : (
+                    <Leaf size={14} className="text-[var(--forest-soft)]" />
                   )}
                 </span>
                 <span className="hidden sm:inline">{link.label}</span>
