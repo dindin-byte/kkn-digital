@@ -33,7 +33,11 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    const trueOpen = isOpen;
+    // Small delay to let React settle, then apply overflow
+    setTimeout(() => {
+      document.body.style.overflow = trueOpen ? "hidden" : "";
+    }, 50);
     return () => {
       document.body.style.overflow = "";
     };
@@ -117,7 +121,7 @@ export default function Navbar() {
         className={`mx-auto mt-2 max-w-[1240px] overflow-hidden rounded-[24px] transition-all duration-500 lg:hidden ${
           isOpen
             ? "glass-nav max-h-[560px] opacity-100"
-            : "pointer-events-none max-h-0 opacity-0"
+            : "max-h-0 opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col gap-1 p-3">
